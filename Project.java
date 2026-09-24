@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 public class Project{
     static String[]arr={"The Hobbit","Animal Farm","The Alchemist","A Brief History of Time","Clean Code","Introduction to Algorithms","The C Programming Language","Java: The Complete Reference","The Great Gatsby","Pride and Prejudice"};
+    static double[]rating={5,4.7,4.8,4.3,4.2,3.7,2.8,4.1,3.3,4.4};
     static int[] assignedDates=new int[5];
     static int []returnDates=new int[5];
     static int[] DueDates=new int[5];
@@ -10,29 +11,50 @@ public class Project{
     static String[]borrowedBooks=new String [5];
     static String []ids={"LIB001","LIB002","LIB003","LIB004","LIB005"};
     public static void main(String[]args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println();
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║              ADMIN LOGIN             ║");
+        System.out.println("╚══════════════════════════════════════╝");
+        System.out.println("Enter Admin credentials: ");
+        System.out.print("Username: ");
+        String username = sc.nextLine();
+        System.out.print("Password: ");
+        String password = sc.nextLine();
+        if(username.equals("admin") && password.equals("password")){
+            Menu();
+        }
+        else{
+            System.out.println("The username or password is incorrect.");
+        }
+    }
+    public static void Menu(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("---------------------------------");
-        System.out.println("|   Library Management System   |");
-        System.out.println("---------------------------------");
+        System.out.println();
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║       LIBRARY MANAGEMENT SYSTEM      ║");
+        System.out.println("╚══════════════════════════════════════╝");
         System.out.println("");
         System.out.println("1. Show all Books ");
         System.out.println("2. Search Book ");
-        System.out.println("3. Add books");
-        System.out.println("4. Remove books");
-        System.out.println("5. Sort books");
+        System.out.println("3. Add Books");
+        System.out.println("4. Remove Books");
+        System.out.println("5. Sort Books");
         System.out.println("6. Assign Books");
-        System.out.println("7. Show all members");
+        System.out.println("7. Show all Members");
         System.out.println("8. Borrowing History");
         System.out.println("9. Fines");
-        System.out.println("10. Due dates");
+        System.out.println("10. Due Dates");
         System.out.println("11. Take Return");
+        System.out.println("12. Add Members");
+        System.out.println("13. Remove Members");
         System.out.println("");
         All_options();
     }
     public static void All_options() {
         Scanner sc=new Scanner(System.in);
         System.out.println();
-        System.out.print("Enter your choice(1 to 11): ");
+        System.out.print("Enter your choice(1 to 13): ");
         int MenuInput = sc.nextInt();
         if (MenuInput == 1) {
             ShowAllBooks();
@@ -56,6 +78,10 @@ public class Project{
             Duedates();
         } else if(MenuInput==11) {
             TakeReturn();
+        }else if(MenuInput==12){
+            AddMembers();
+        }else if(MenuInput==13){
+            RemoveMembers();
         }
     }
     public static void ShowAllBooks(){
@@ -63,7 +89,7 @@ public class Project{
         for(int i=0;i< arr.length;i++){
             System.out.println((i+1)+". "+arr[i]);
         }
-        All_options();
+        Menu();
     }
     public static void SearchBooks(){
         System.out.println();
@@ -71,19 +97,22 @@ public class Project{
         System.out.print("Search book: ");
         String book=sc.nextLine();
         boolean flag=false;
-        for(int i=0;i<arr.length;i++){
+        int i=0;
+        for( i=0;i<arr.length;i++){
             if(book.equals(arr[i])){
                 flag=true;
                 break;
             }
         }
         if(flag==false){
-            System.out.println("Not Available");
+            System.out.println();
+            System.out.println("Sorry, Not Available");
         }
         else{
-            System.out.println("Available");
+            System.out.println();
+            System.out.println("Yes, Available--It's in serial number "+(i+1));
         }
-        All_options();
+        Menu();
     }
     public static void AddBooks(){
         System.out.println();
@@ -100,8 +129,8 @@ public class Project{
         for(int i=0;i<arr.length;i++){
             newArr[i]=arr[i];
         }
-        System.out.print("Enter the names of the new books: ");
         for(int m=0;m<added;m++){
+            System.out.print("Enter the name of book no. "+(m+1)+": ");
             String newBooks=sc.nextLine();
             newArr[size+m]=newBooks;
         }
@@ -110,12 +139,12 @@ public class Project{
         for(int j=0;j<newArr.length;j++){
             System.out.println((j+1)+". "+arr[j]);
         }
-        All_options();
+        Menu();
     }
     public static void RemoveBooks(){
         System.out.println();
         Scanner sc=new Scanner(System.in);
-        System.out.println("The current book list is: ");
+        System.out.println("The current book list: ");
         System.out.println("");
         for(int n=0;n< arr.length;n++){
             System.out.println((n+1)+". "+arr[n]);
@@ -129,8 +158,8 @@ public class Project{
             count++;
         }
         int size=count;
-        System.out.print("Enter the serial numbers: ");
         for(int i=0;i<remove;i++){
+            System.out.print("Enter the serial number: ");
             int options=sc.nextInt();
             int options2=options-i;
             String []newArr=new String[size-1];
@@ -142,19 +171,30 @@ public class Project{
             }
             arr=newArr;
             size=size-1;  //after every iteration, size of the array will decrease by 1
-    }
+        }
         System.out.println("");
         System.out.println("Updated book list: ");
         for(int m=0;m< arr.length;m++){
             System.out.println((m+1)+". "+arr[m]);
         }
-        All_options();
+        Menu();
     }
     public static void SortBooks(){
         System.out.println();
+        System.out.println("How do you want to sort by?");
+        System.out.println("1. Alphabetical Order");
+        System.out.println("2. Ratings");
+        System.out.println();
+        System.out.print("Choose your option: ");
         Scanner sc=new Scanner(System.in);
-        AlphabeticalOrder();
-        All_options();
+        int choose=sc.nextInt();
+        if(choose==1){
+            AlphabeticalOrder();
+        }
+        else if(choose==2){
+            Rating();
+        }
+        Menu();
     }
     public static void AlphabeticalOrder(){
         System.out.println();
@@ -189,7 +229,30 @@ public class Project{
         for(int i=0;i< arr.length;i++){
             System.out.println((i+1)+". "+arr[i]);
         }
-        All_options();
+        Menu();
+    }
+    public static void Rating(){
+        for(int i=0;i<rating.length-1;i++){
+            int minIndex=i;
+            for(int j=i+1;j<rating.length;j++){
+                if(rating[j]>rating[minIndex]){
+                    minIndex=j;
+                }
+            }
+            double temp=rating[i];
+            String temp2=arr[i];
+            rating[i]=rating[minIndex];
+            arr[i]=arr[minIndex];
+            rating[minIndex]=temp;
+            arr[minIndex]=temp2;
+        }
+        System.out.println();
+        System.out.println("Sorted by Ratings: ");
+        System.out.println();
+        for(int i=0;i< arr.length;i++){
+            System.out.println((i+1)+". "+arr[i]+"-- Rating: "+rating[i]+"★");
+        }
+        Menu();
     }
     public static void AssignBooks(){
         System.out.println();
@@ -263,7 +326,7 @@ public class Project{
             System.out.println(borrowedBooks[MemberIdx]+" book has been assigned to ID no.-"+ids[MemberIdx]+", Name: "+members[MemberIdx]);
             String LeftoverEater=sc.nextLine();
         }
-        All_options();
+        Menu();
     }
     public static void Borrowing_History(){
         System.out.println("Here is the list of all members with their respective borrowing history: ");
@@ -271,7 +334,7 @@ public class Project{
         for(int i=0;i< members.length;i++){
             System.out.println("Name: "+members[i]);
             System.out.println("ID: "+ids[i]);
-                System.out.println("Borrowed book: "+borrowedBooks[i]);
+            System.out.println("Borrowed book: "+borrowedBooks[i]);
 
             if(assignedDates[i]==0){
                 System.out.println("Book borrowed on: --");
@@ -281,7 +344,7 @@ public class Project{
             }
             System.out.println();
         }
-        All_options();
+        Menu();
     }
     public static void Duedates(){
         System.out.println("Here is the all members with their respective due dates:  ");
@@ -298,10 +361,10 @@ public class Project{
             else if(DueDates[i]>10 && DueDates[i]<=30){
                 System.out.println("Due date: "+DueDates[i]+" September 2026");
             }
-                System.out.println("Borrowed book: "+borrowedBooks[i]);
+            System.out.println("Borrowed book: "+borrowedBooks[i]);
 
         }
-        All_options();
+        Menu();
     }
     public static void AllMembers(){
         System.out.println();
@@ -310,7 +373,7 @@ public class Project{
         for(int i=0;i< members.length;i++){
             System.out.println((i+1)+". "+members[i]+" -ID: "+ids[i]);
         }
-        All_options();
+        Menu();
     }
     public static void TakeReturn(){
         System.out.println();
@@ -361,7 +424,7 @@ public class Project{
             }
             String LeftoverEater=sc.nextLine();
         }
-        All_options();
+        Menu();
     }
     public static void Fines(){
         System.out.println("Here is the list of members along with their respective overdue fines: ");
@@ -371,6 +434,90 @@ public class Project{
             System.out.println("ID: " + ids[i]);
             System.out.println("Fine: "+Fines[i]+" taka");
         }
-        All_options();
+        Menu();
+    }
+    public static void AddMembers(){
+        System.out.println();
+        Scanner sc=new Scanner(System.in);
+        int count=0;
+        for(int m=0;m<members.length;m++){
+            count++;
+        }
+        int size=count;
+        System.out.print("Enter the amount of Members to be added: ");
+        int added=sc.nextInt();
+        String leftoverEater=sc.nextLine();  //To consume the extra ' '
+        String []newArr=new String[size+added];
+        String []newArrID=new String[size+added];
+        for(int i=0;i<members.length;i++){
+            newArr[i]=members[i];
+            newArrID[i]=ids[i];
+        }
+        for(int m=0;m<added;m++){
+            System.out.print("Enter the name of new Member-"+(m+1)+": ");
+            String newMembers=sc.nextLine();
+            newArr[size+m]=newMembers;
+            System.out.print("Set an ID for the new Member-"+(m+1)+": ");
+            String newId=sc.nextLine();
+            newArrID[size+m]=newId;
+        }
+        members=newArr;
+        ids=newArrID;
+        System.out.println("Updated list of Members: ");
+        for(int j=0;j<newArr.length;j++){
+            System.out.println((j+1)+". "+members[j]+"--ID: "+ids[j]);
+        }
+        Menu();
+    }
+    public static void RemoveMembers(){
+        System.out.println();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("The current list of all Members: ");
+        System.out.println("");
+        for(int n=0;n< members.length;n++){
+            System.out.println((n+1)+". "+members[n]+" --ID: "+ids[n]);
+        }
+        System.out.println("");
+        System.out.println("");
+        System.out.print("Enter the amount of Members to remove: ");
+        int remove=sc.nextInt();
+        int count=0;
+        for(int m=0;m<members.length;m++){
+            count++;
+        }
+        int size=count;
+        int options=0;
+        String LeftoverEater=sc.nextLine();
+        for(int i=0;i<remove;i++){
+            System.out.print("Enter the ID of the Member: ");
+            String id=sc.nextLine();
+            for(int p=0;p< ids.length;p++){
+                if(id.equals(ids[p])){
+                    options=(p+1);
+                }
+            }
+            int options2=options;
+            String []newArr=new String[size-1];
+            String []newArr2=new String[size-1];
+            for(int j=0;j<options2-1;j++){
+                newArr[j]=members[j];
+                newArr2[j]=ids[j];
+            }
+            for(int k=options2-1;k< newArr.length;k++){
+                newArr[k]=members[k+1];
+                newArr2[k]=ids[k+1];
+            }
+            members=newArr;
+            ids=newArr2;
+            size=size-1;
+            //String LeftOverEater=sc.nextLine();//after every iteration, size of the array will decrease by 1
+        }
+        System.out.println("");
+        System.out.println("Updated list of all Members: ");
+        for(int m=0;m< members.length;m++){
+            System.out.println((m+1)+". "+members[m]+" --ID :"+ids[m]);
+        }
+        Menu();
     }
 }
+
