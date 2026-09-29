@@ -1,8 +1,8 @@
-📚 **Library Management System**
+# 📚 **Library Management System**
 
 A console-based Library Management System developed in Java. The system is designed from an admin's perspective and provides features for managing books, library members, book assignments, returns, due dates, borrowing history, and overdue fines.
 
-📌 **Overview**
+## 📌 **Overview**
 
 The Library Management System is a Java-based console application designed from an administrator's perspective to manage the basic operations of a library.
 
@@ -10,30 +10,30 @@ The system allows the administrator to manage books and members, search and sort
 
 The project focuses on applying fundamental Java programming concepts such as:
 
-•Arrays
+• Arrays
 
-•Strings
+• Strings
 
-•Loops
+• Loops
 
-•Conditional statements
+• Conditional statements
 
-•Methods
+• Methods
 
-•Sorting
+• Sorting
 
-•Basic array manipulation
+• Basic array manipulation
 
 
 The system uses **parallel arrays** to maintain relationships between members, IDs, borrowed books, dates, and fines.
 
- 🛠️ **Technology Used**
+ ## 🛠️ **Technology Used**
 
  ☕ **Programming Language**
 
-•Java
+• Java
 
- 📚 **Java Concepts Used**
+ ## 📚 **Java Concepts Used**
 
 • Arrays of different data types (`String`, `int`, `double`)
 
@@ -51,23 +51,23 @@ The system uses **parallel arrays** to maintain relationships between members, I
 
 • Dynamic array resizing using new arrays
 
- 🔐 **Admin Login**
+ ## 🔐 **Admin Login**
 
 Use the following credentials to access the system:
 
-•Username: `admin`
+• Username: `admin`
 
-•Password: `password`
+• Password: `password`
 
  ✨ **Features**
 
-👤 **Admin Access**
+## 👤 **Admin Access**
 
 • Admin login using username and password
 
 • Access library management operations
 
- 📚 **Book Management**
+ ## 📚 **Book Management**
 
 • View all available books
 
@@ -79,7 +79,7 @@ Use the following credentials to access the system:
 
 • Sort books alphabetically or by rating
 
- 👥 **Member Management**
+ ## 👥 **Member Management**
 
 • View all library members
 
@@ -89,7 +89,7 @@ Use the following credentials to access the system:
 
 • Assign unique IDs to members
 
- 🔄 **Book Assignment**
+ ## 🔄 **Book Assignment**
 
 • Assign books to library members
  
@@ -98,7 +98,7 @@ Use the following credentials to access the system:
 • Automatically calculate the due date
 
 
- 📥 **Book Return System**
+ ## 📥 **Book Return System**
 
 • Process book returns
 
@@ -109,26 +109,26 @@ Use the following credentials to access the system:
 • Calculate fines for overdue books
  
 
- 📖 **Borrowing History**
+ ## 📖 **Borrowing History**
 
 • View members' borrowed books
 
 • View borrowing dates for individual members
 
- 📅 **Due Date Management**
+ ## 📅 **Due Date Management**
 
 • Calculate due dates for borrowed books
 
 • View due dates for individual members
 
- 💰 **Fine System**
+ ## 💰 **Fine System**
 
 • Calculate fines for overdue books
 
 • View fines associated with each member
 
 
- 🧠 **Implementation Highlights**
+ ## 🧠 **Implementation Highlights**
 
 • 🔹 Parallel arrays for organizing and managing related library data
 
@@ -141,63 +141,63 @@ Use the following credentials to access the system:
 • 🔹Selection sorting for organizing books
 
 
-🖼️ **System Architecture Diagram**
+## 🖼️ **System Architecture Diagram**
 
 <img width="8192" height="4371" alt="System_workflow" src="https://github.com/user-attachments/assets/d485b4ee-1a52-4963-992e-44a6f79e4f7f" />
 
 
-🚀 **Future Work**
+# 🚀 **Future Work**
 
-🧩 **Object-Oriented Design**
+## 🧩 **Object-Oriented Design**
 
-•Refactor the system using classes and objects
+• Refactor the system using classes and objects
 
-•Apply constructors, encapsulation, and appropriate access modifiers
+• Apply constructors, encapsulation, and appropriate access modifiers
 
-•Replace parallel arrays with well-structured objects
+• Replace parallel arrays with well-structured objects
 
-🗄️ **Database Integration**
+## 🗄️ **Database Integration**
 
-•Introduce a relational database such as MySQL
+• Introduce a relational database such as MySQL
 
-•Store books, members, borrowing records, and fines persistently
+• Store books, members, borrowing records, and fines persistently
 
-🌐 **Web-Based Application**
+## 🌐 **Web-Based Application**
 
-•Transform the console-based system into a web application
+• Transform the console-based system into a web application
 
-•Develop a graphical user interface for easier interaction
+• Develop a graphical user interface for easier interaction
 
-🔐 **Improved Access System**
+## 🔐 **Improved Access System**
 
-•Provide separate access for Admin and Library Members
+• Provide separate access for Admin and Library Members
 
-•Allow members to access their own borrowing information, due dates, and fines
+• Allow members to access their own borrowing information, due dates, and fines
 
-➕ **Additional Features**
+## ➕ **Additional Features**
 
-•Track most popular books
+• Track most popular books
 
-•Allow members to add books to a Wishlist or Favorites
+• Allow members to add books to a Wishlist or Favorites
 
-•Introduce book reviews
+• Introduce book reviews
 
-•Add contact information for the library
+• Add contact information for the library
 
-•Send notifications for upcoming due dates and overdue books
+• Send notifications for upcoming due dates and overdue books
 
-🎯 **Purpose**
+## 🎯 **Purpose**
 
 This project is designed to:
 
-•Apply fundamental Java programming concepts in a practical project
+• Apply fundamental Java programming concepts in a practical project
 
-•Practice working with arrays, loops, methods, searching, and sorting
+• Practice working with arrays, loops, methods, searching, and sorting
 
-•Develop problem-solving and logical thinking skills
+• Develop problem-solving and logical thinking skills
 
-•Create a foundation for developing more advanced versions using OOP, databases, and web technologies
+• Create a foundation for developing more advanced versions using OOP, databases, and web technologies
 
-👨💻 **Author**
+## 👨💻 **Author**
 
 Nabil Tawhid Ahmed
